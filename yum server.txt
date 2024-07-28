@@ -1,0 +1,44 @@
+		*****************
+		|  Yum Server	|
+		*****************
+-------------------------------------------------
+
+** Steps for yum server
+1.  change hostname. 	2.  change ip address.
+3.  update host file.	4.  stop firewall.
+5.  stop selinux.	6.  install ftp.
+7.  start ftp service.	8.  mount dvd of rhel7
+			    on /mnt.
+9.  create a folderlike	10. assign full 
+    /var/ftp/pub/rhel7.	    permission to all
+			    over /var/ftp/pub
+			    /rhel7.
+11. create dump of	12. install yum and  
+    linux dvd in 	    createrepo 
+    /var/ftp/pub/rhel7.	    package using rpm.
+
+13. create repositiory	14. edit the file 
+    of /var/ftp/pub	    vi /etc/yum.repos.d
+    /rhel7.		    /server.repo
+15. write the script 
+    as like :
+
+-------------------------------------------------
+	    [server]
+    	    name = " yum server "
+	    baseurl = "ftp://192.168.1.2/pub/rhel7"
+	    gpgcheck=0
+-------------------------------------------------
+note - save the scrip and restart the vsftp 
+       and yum service.
+16. yum clean all	17. yum install pkgname.
+18. yum remove pkgname.
+19. update host file
+20. vi /etc/hosts
+
+-------------------------------------------------
+192.168.1.2 server 	[ ip and hostname ]
+192.168.1.3 client1		""
+192.168.1.4 client2		""
+192.168.1.5 client3		""
+-------------------------------------------------
